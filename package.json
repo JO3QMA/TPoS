@@ -1,0 +1,14 @@
+{
+  "name": "concatenate_poster",
+  "version": "1.0.0",
+  "description": "VRChatの例のワールド向けのポスターを作成する",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JO3QMA",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
