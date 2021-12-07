@@ -1,13 +1,21 @@
 {
   "name": "concatenate_poster",
   "version": "1.0.0",
-  "description": "VRChatの例のワールド向けのポスターを作成する",
+  "description": "VRChatの例のワールド用のポスター結合するやつ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JO3QMA/concatenate_poster.git"
+  },
   "author": "JO3QMA",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JO3QMA/concatenate_poster/issues"
+  },
+  "homepage": "https://github.com/JO3QMA/concatenate_poster#readme",
   "dependencies": {
     "express": "^4.17.1"
   }
