@@ -1,4 +1,8 @@
 config.yml
+ruby/source/*
+ruby/target/*
+ruby/dummy.*
+ruby/result.png
 
 
 # Logs
