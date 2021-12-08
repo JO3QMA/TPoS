@@ -1,6 +1,6 @@
 source:
   # ポスターに使いたい画像ファイルを入れるディレクトリです。
-  # jjpg|jpeg|png|gif|tif
+  # jpg|jpeg|png|gif|tif
   # 名前順に読み込まれます。
   path: './source/'
   dummy: './dummy.jpg' # ダミーデータです。4*4でやりたいのに画像が5枚ぐらいしか無いときとかは残りはこれで埋められます。
