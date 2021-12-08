@@ -76,20 +76,22 @@ class ConbineImage
 
   def combine_img(img_array)
     # 画像を結合する
+    target = @config['target']
+
     result = Magick::ImageList.new
     img_array.each do |img_row|
       resized_ary = Magick::ImageList.new
       img_row.each do |img|
         image = Magick::Image.read(img).first
-        image.resize!(@config['target']['parts_of']['width'], @config['target']['parts_of']['height'])
-        image = image.border(@config['target']['parts_of']['border'], @config['target']['parts_of']['border'], @config['target']['parts_of']['color'])
+        image.resize!(target['parts_of']['width'], target['parts_of']['height'])
+        image = image.border(target['parts_of']['border'], target['parts_of']['border'], target['parts_of']['color'])
         resized_ary << image
       end
       result << resized_ary.append(false) # false: 左右に並べる
     end
     result = result.append(true) # true: 上下に並べる
     puts '保存'
-    result.write(@config['target']['path'])
+    result.write(target['path'])
   end
 
   def main
