@@ -82,6 +82,7 @@ class ConbineImage
       img_row.each do |img|
         image = Magick::Image.read(img).first
         image.resize!(@config['target']['parts_of']['width'], @config['target']['parts_of']['height'])
+        image = image.border(@config['target']['parts_of']['border'], @config['target']['parts_of']['border'], @config['target']['parts_of']['color'])
         resized_ary << image
       end
       result << resized_ary.append(false) # false: 左右に並べる
