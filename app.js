@@ -25,12 +25,7 @@ const config = (path => {
 })('./config.yml');
 
 // connect to mariadb
-const pool = mariadb.createPool({
-  host: config.db.host,
-  user: config.db.user,
-  password: config.db.password,
-});
-
+const pool = mariadb.createPool(config.db);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
