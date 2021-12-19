@@ -4,10 +4,33 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const mariadb = require('mariadb');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+// load yaml config file
+const yaml = require('js-yaml');
+const fs = require('fs');
+
+const config = (path => {
+  try {
+    return yaml.load(fs.readFileSync(path, 'utf8'));
+  } catch (e) {
+    console.log(e);
+    return {};
+  }
+})('./config.yml');
+
+// connect to mariadb
+const pool = mariadb.createPool({
+  host: config.db.host,
+  user: config.db.user,
+  password: config.db.password,
+});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
