@@ -14,7 +14,8 @@
     "jade": "^0.29.0",
     "js-yaml": "^4.1.0",
     "mariadb": "^2.5.5",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "passport-twitter": "^1.0.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
