@@ -4,10 +4,9 @@ require_relative './poster'
 
 # 画像読み込みクラス
 class ImgLoader
-  def initialize(config)
-    @config = config
-    @posters = []
-  end
+  attr_writer :config
+
+  def initialize; end
 
   # Sourceフォルダーに入ってる画像(ファイル名)を昇順で配列に入れる
   def list
@@ -16,8 +15,6 @@ class ImgLoader
       File.ftype(file) == 'file'
     end
   end
-
-  def panel_group; end
 
   # 募集ポスター
   def wanted_posters
