@@ -18,6 +18,10 @@ class ImgLoader
 
   # 募集ポスター
   def wanted_posters
-    list.reverse.first(@config.slice - 1).push(@config.wanted)
+    if list.size > (@config.slice - 1)
+      list.reverse.first(@config.slice - 1).push(@config.wanted)
+    else
+      []
+    end
   end
 end

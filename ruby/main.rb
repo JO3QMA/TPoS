@@ -21,7 +21,11 @@ if __FILE__ == $PROGRAM_NAME
   images = ImgLoader.new
   images.config = config
   puts "INFO : ポスターの枚数 #{images.list.size}枚"
-  puts images.list.size
+  panels = []
+  images.list.each_slice(config.slice).with_index do |img, idx|
+    panels[idx] = Panel.new(img, config)
+    puts panels[idx].posters.size
+  end
+  puts panels
   puts images.wanted_posters.size
-
 end
