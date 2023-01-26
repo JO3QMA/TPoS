@@ -18,6 +18,7 @@ class Panel
     target_poster = @col * @row
     if target_poster.size > @posters.size
       fill_count = target_poster_size - @posters.size
+      puts 'INFO : ポスターの枚数が目標値に足らないため、ダミーデータで埋められます。'
       fill_count.times do
         @posters << @dummy
       end
@@ -37,7 +38,6 @@ class Panel
         @panels[:left] << column
       end
     end
-    @panels
   end
 
   def render; end
