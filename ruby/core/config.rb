@@ -9,23 +9,23 @@ class Config
   end
 
   # ポスター関連
-  def source
-    @config['posters']['source']
-  end
-
   def pattern
     @config['posters']['pattern']
   end
 
+  def source
+    File.expand_path(@config['posters']['source'])
+  end
+
   def dummy
-    @config['posters']['dummy']
+    File.expand_path(@config['posters']['dummy'])
+  end
+
+  def wanted
+    File.expand_path(@config['posters']['wanted'])
   end
 
   def slice
     @config['posters']['slice']
-  end
-
-  def wanted
-    @config['posters']['wanted']
   end
 end
