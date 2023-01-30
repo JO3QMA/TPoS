@@ -6,9 +6,10 @@ require 'rmagick'
 class Panel
   attr_reader :posters
 
-  def initialize(posters, config)
+  def initialize(posters, config, index)
     @posters = posters
     @config = config
+    @index = index
     fill_dummy
     separate
   end
@@ -49,13 +50,13 @@ class Panel
         posters.push(poster.resize(@config.size))
       end
       panel = montage(posters)
-      save(panel, '01', key)
+      save(panel, key)
     end
   end
 
-  def save(img, set, direction)
+  def save(img, direction)
     prefix = 'page'
-    filename = "#{prefix}#{set}_#{direction}.png"
+    filename = "#{prefix}#{@index}_#{direction}.png"
     img.write filename
     puts 'INFO : パネルを保存しました。'
     img.clear

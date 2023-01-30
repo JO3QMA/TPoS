@@ -38,11 +38,13 @@ class Config
   # モンタージュ
   def montage
     config = @config['montage']
-    options = Hash.new
+    options = {}
     options['background_color'] = config['background_color']
-    options['geometry'] = Magick::Geometry.new(config['geometry']['width'], config['geometry']['height'], config['geometry']['distance'], config['geometry']['distance'])
+    options['geometry'] =
+Magick::Geometry.new(config['geometry']['width'], config['geometry']['height'], config['geometry']['distance'],
+                     config['geometry']['distance'])
     options['tile'] = config['tile']
 
-    return options
+    options
   end
 end
