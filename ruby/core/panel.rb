@@ -55,7 +55,7 @@ class Panel
   end
 
   def save(img, direction)
-    prefix = 'page'
+    prefix = 'page' unless @index == 'latest'
     filename = "#{prefix}#{@index}_#{direction}.png"
     img.write filename
     puts 'INFO : パネルを保存しました。'
