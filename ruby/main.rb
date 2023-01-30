@@ -23,8 +23,9 @@ if __FILE__ == $PROGRAM_NAME
   puts "INFO : ポスターの枚数 #{images.list.size}枚"
   panels = []
   images.list.each_slice(config.slice).with_index do |img, idx|
+    puts "INFO : #{idx + 1}枚目 ポスターの生成を開始します。"
     panels[idx] = Panel.new(img, config)
-    puts panels[idx].posters.size
+    panels[idx].render
   end
   puts panels
   puts images.wanted_posters.size

@@ -28,4 +28,21 @@ class Config
   def slice
     @config['posters']['slice']
   end
+
+  def size
+    width = @config['posters']['size']['width']
+    height = @config['posters']['size']['height']
+    [width, height]
+  end
+
+  # モンタージュ
+  def montage
+    config = @config['montage']
+    options = Hash.new
+    options['background_color'] = config['background_color']
+    options['geometry'] = Magick::Geometry.new(config['geometry']['width'], config['geometry']['height'], config['geometry']['distance'], config['geometry']['distance'])
+    options['tile'] = config['tile']
+
+    return options
+  end
 end
