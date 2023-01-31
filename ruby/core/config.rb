@@ -40,11 +40,12 @@ class Config
     config = @config['montage']
     options = {}
     options['background_color'] = config['background_color']
-    options['geometry'] =
-Magick::Geometry.new(config['geometry']['width'], config['geometry']['height'], config['geometry']['distance'],
-                     config['geometry']['distance'])
+    options['geometry'] = Magick::Geometry.new(
+      size[0], size[1],
+      config['geometry']['distance'],
+      config['geometry']['distance']
+    )
     options['tile'] = config['tile']
-
     options
   end
 end

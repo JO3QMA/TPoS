@@ -6,13 +6,11 @@ posters:
   wanted: './wanted.png'
   slice: 32 # ポスター生成枚数
   size:
-    width: 256
-    height: 512
+    width: 700
+    height: 990
 
 montage:
   background_color: 'transparent'
   geometry:
-    width: 256
-    height: 512
-    distance: 64
+    distance: 2
   tile: '4x4'
