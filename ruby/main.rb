@@ -7,7 +7,7 @@ require_relative './core/img_loader'
 
 # 設定ファイルのパス
 def config_path
-  if ARGV.size.zero?
+  if ARGV.empty?
     './config.yml'
   elsif ARGV.size == 1
     ARGV[0]
