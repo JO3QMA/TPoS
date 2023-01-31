@@ -27,7 +27,7 @@ class Panel
   # 左右で分割します。 @separate_count毎に分けられます。
   def separate
     @panels = { left: [], right: [] }
-    separate = 4 * 4
+    separate = @config.slice / 2
     column = @posters.each_slice(separate)
     @panels[:left] << column.next
     @panels[:right] << column.next
