@@ -1,16 +1,16 @@
 posters:
   # Dir.globで扱える形式のパターンマッチで拡張子を見てます。
   pattern: '*.{png,jpg,jpeg,gif,tif,bmp}'
-  source: './source/'
-  dummy: './dummy.png'
-  wanted: './wanted.png'
-  slice: 32 # ポスター生成枚数
-  size:
-    width: 700
-    height: 990
+  source: './source/'       # 合成元フォルダ
+  target: './target/'       # 生成先フォルダ
+  dummy: './dummy.png'      # ダミーポスター
+  wanted: './wanted.png'    # 募集ポスター
+  size:                     # ポスターごとの
+    width: 700              # 横px
+    height: 990             # 縦px
 
-montage:
-  background_color: 'transparent'
+montage:                    # パネル
+  background_color: 'transparent' # 背景色
   geometry:
-    distance: 2
-  tile: '4x4'
+    distance: 2             # ポスター同士の距離(distance * 2が実際の値だけど)
+  tile: '4x4'               # ポスターの枚数 (横x縦)

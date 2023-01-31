@@ -17,20 +17,23 @@ class Panel
   # ダミーで不足分を埋める
   def fill_dummy
     puts "INFO : ポスターの枚数 #{@posters.size}枚"
-    return unless @posters.size < @config.slice
+    return unless @posters.size < @config.slice_panel * 2
 
-    puts "INFO : #{@config.slice}に満たない分はダミーデータで補われます。"
-    dummy = Array.new(@config.slice - @posters.size, @config.dummy)
+    puts "INFO : #{@config.slice_panel * 2}に満たない分はダミーデータで補われます。"
+    dummy = Array.new(@config.slice_panel * 2 - @posters.size, @config.dummy)
     @posters.concat(dummy)
   end
 
   # 左右で分割します。 @separate_count毎に分けられます。
   def separate
     @panels = { left: [], right: [] }
-    separate = @config.slice / 2
-    column = @posters.each_slice(separate)
-    @panels[:left] << column.next
-    @panels[:right] << column.next
+    @posters.each_slice(@config.slice[:col]).with_index do |column, i|
+      if i.even?
+        @panels[:left].concat(column)
+      else
+        @panels[:right].concat(column)
+      end
+    end
   end
 
   def montage(posters)
@@ -45,7 +48,7 @@ class Panel
   def render
     @panels.each_pair do |key, images|
       posters = Magick::ImageList.new
-      images[0].each do |path|
+      images.each do |path|
         poster = Poster.new(path)
         posters.push(poster.resize(@config.size))
       end
@@ -57,7 +60,8 @@ class Panel
   def save(img, direction)
     prefix = 'page' unless @index == 'latest'
     filename = "#{prefix}#{@index}_#{direction}.png"
-    img.write filename
+    filepath = "#{@config.target}/#{filename}"
+    img.write filepath
     puts 'INFO : パネルを保存しました。'
     img.clear
     puts 'DEBUG: ImageListをクリアしました。'

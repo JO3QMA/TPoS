@@ -2,7 +2,7 @@
 ruby/source/*
 ruby/target/*
 ruby/dummy.*
-ruby/result.png
+ruby/wanted.*
 
 
 # Logs

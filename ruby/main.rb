@@ -24,7 +24,7 @@ if __FILE__ == $PROGRAM_NAME
   images = ImgLoader.new
   images.config = config
   puts "INFO : ポスターの枚数 #{images.list.size}枚"
-  images.list.each_slice(config.slice).with_index(1) do |img, i|
+  images.list.each_slice(config.slice_panel * 2).with_index(1) do |img, i|
     i = format('%02<number>d', number: i)
     puts "INFO : #{i}枚目 ポスターの生成を開始します。"
     panel = Panel.new(img, config, i)

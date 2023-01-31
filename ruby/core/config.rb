@@ -17,6 +17,10 @@ class Config
     File.expand_path(@config['posters']['source'])
   end
 
+  def target
+    File.expand_path(@config['posters']['target'])
+  end
+
   def dummy
     File.expand_path(@config['posters']['dummy'])
   end
@@ -26,7 +30,12 @@ class Config
   end
 
   def slice
-    @config['posters']['slice']
+    tile = @config['montage']['tile'].split('x')
+    { col: tile[0].to_i, row: tile[1].to_i }
+  end
+
+  def slice_panel
+    slice[:col] * slice[:row]
   end
 
   def size
