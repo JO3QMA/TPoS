@@ -59,8 +59,9 @@ class Panel
 
   def save(img, direction)
     prefix = 'page' unless @index == 'latest'
-    filename = "#{prefix}#{@index}_#{direction}.png"
+    filename = "#{prefix}#{@index}_#{direction}.#{@config.extension}"
     filepath = "#{@config.target}/#{filename}"
+    img.format = @config.format
     img.write filepath
     puts 'INFO : パネルを保存しました。'
     img.clear

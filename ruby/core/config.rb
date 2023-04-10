@@ -21,6 +21,14 @@ class Config
     File.expand_path(@config['posters']['target'])
   end
 
+  def extension
+    @config['posters']['extension']
+  end
+
+  def format
+    @config['posters']['format']
+  end
+
   def dummy
     File.expand_path(@config['posters']['dummy'])
   end
