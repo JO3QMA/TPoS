@@ -10,35 +10,35 @@ class Config
 
   # ポスター関連
   def pattern
-    @config['posters']['pattern']
+    @config.dig('posters', 'pattern')
   end
 
   def source
-    File.expand_path(@config['posters']['source'])
+    File.expand_path(@config.dig('posters', 'source'))
   end
 
   def target
-    File.expand_path(@config['posters']['target'])
+    File.expand_path(@config.dig('posters', 'target'))
   end
 
   def extension
-    @config['posters']['extension']
+    @config.dig('posters', 'extension')
   end
 
   def format
-    @config['posters']['format']
+    @config.dig('posters', 'format')
   end
 
   def dummy
-    File.expand_path(@config['posters']['dummy'])
+    File.expand_path(@config.dig('posters', 'dummy'))
   end
 
   def wanted
-    File.expand_path(@config['posters']['wanted'])
+    File.expand_path(@config.dig('posters', 'wanted'))
   end
 
   def slice
-    tile = @config['montage']['tile'].split('x')
+    tile = @config.dig('montage', 'tile').split('x')
     { col: tile[0].to_i, row: tile[1].to_i }
   end
 
@@ -47,8 +47,8 @@ class Config
   end
 
   def size
-    width = @config['posters']['size']['width']
-    height = @config['posters']['size']['height']
+    width = @config.dig('posters', 'size', 'width')
+    height = @config.dig('posters', 'size', 'height')
     [width, height]
   end
 
@@ -59,8 +59,8 @@ class Config
     options['background_color'] = config['background_color']
     options['geometry'] = Magick::Geometry.new(
       size[0], size[1],
-      config['geometry']['distance'],
-      config['geometry']['distance']
+      config.dig('geometry', 'distance'),
+      config.dig('geometry', 'distance')
     )
     options['tile'] = config['tile']
     options
