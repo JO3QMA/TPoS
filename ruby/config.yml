@@ -4,7 +4,7 @@ posters:
   source: './source/'       # 合成元フォルダ
   target: './target/'       # 生成先フォルダ
   extension: 'png'          # 出力拡張子
-  format: 'PNG32'           # ビット深度
+  format: 'png32'           # ビット深度
   dummy: './dummy.png'      # ダミーポスター
   wanted: './wanted.png'    # 募集ポスター
   size:                     # ポスターごとの
